@@ -1,4 +1,4 @@
-/* ============================================
+/* ===========================================
    SAHIL KIRMANI PORTFOLIO - COMPLETE CSS
    Works for ALL pages: Home, About, Experience, Skills, Contact
    ============================================ */
@@ -68,7 +68,7 @@ nav {
 nav a {
   color: #ffffff;
   text-decoration: none;
-  padding: 10px 20px;
+  padding: 2px 4px;
   background: #333;
   border-radius: 5px;
   font-weight: 500;
@@ -907,3 +907,4 @@ footer {
   text-shadow:
     0 0 10px rgba(0,255,156,0.8);
 }
+
