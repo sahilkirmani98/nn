@@ -908,3 +908,43 @@ footer {
     0 0 10px rgba(0,255,156,0.8);
 }
 
+.futuristic-bg {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background: radial-gradient(
+    circle at top,
+    #0a192f,
+    #020c1b
+  );
+  overflow: hidden;
+}
+
+.futuristic-bg svg {
+  width: 100%;
+  height: 100%;
+}
+
+.futuristic-bg line {
+  stroke: rgba(0, 180, 255, 0.35);
+  stroke-width: 0.15;
+  animation: lineMove 6s linear infinite;
+}
+
+.futuristic-bg line:nth-child(2) { animation-delay: 1s; }
+.futuristic-bg line:nth-child(3) { animation-delay: 2s; }
+.futuristic-bg line:nth-child(4) { animation-delay: 3s; }
+
+@keyframes lineMove {
+  0% {
+    transform: translateX(-20%);
+    opacity: 0;
+  }
+  20% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(120%);
+    opacity: 0;
+  }
+}
