@@ -908,6 +908,7 @@ footer {
     0 0 10px rgba(0,255,156,0.8);
 }
 
+
 .futuristic-bg {
   position: fixed;
   inset: 0;
@@ -948,3 +949,7 @@ footer {
     opacity: 0;
   }
 }
+   .robot{
+      positioning: absolute;
+      top: 0;
+   }
