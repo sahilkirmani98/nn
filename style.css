@@ -91,7 +91,7 @@ nav a.active {
 
 /* ========== 3. MAIN CONTENT AREA ========== */
 .container {
-  background: #1a1a1a;
+  background: transparent;
   padding: 30px;
   border-radius: 10px;
   margin-bottom: 30px;
@@ -149,7 +149,8 @@ p {
   font-size: 20px;
   font-weight: 500;
   margin-bottom: 25px;
-  text-align: center;
+  text-align: center
+   background: transparent;
 }
 
 /* ========== 5. HOME PAGE STYLES ========== */
@@ -978,4 +979,5 @@ footer {
       
    }
    
+
 
