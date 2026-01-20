@@ -6,26 +6,26 @@
   <title>Contact | Sahil Kirmani</title>
   <link rel="stylesheet" href="style.css">
   <style>
-    /* Critical mobile fixes */
+    /* Critical fixes for mobile + no cropping */
     @media (max-width: 768px) {
-      body {
-        font-size: 16px !important; /* base size for readability */
-      }
+      body { font-size: 16px !important; }
       .hero {
         min-height: auto !important;
-        padding: 5rem 1.2rem 8rem !important; /* top + large bottom to reveal buttons + footer space */
+        padding: 7rem 1.2rem 10rem !important; /* زیادہ ٹاپ padding + نیچے بٹنز کے لیے جگہ */
         display: flex;
         align-items: flex-start !important;
         justify-content: flex-start !important;
       }
       .hero-content {
         width: 100%;
-        padding: 1rem 0;
+        padding: 1.5rem 0 3rem !important;
       }
       h1 {
-        font-size: 2.8rem !important;
-        line-height: 1.1 !important;
+        font-size: 2.6rem !important; /* موبائل پر بہتر سائز */
+        line-height: 1.15 !important;
         margin-bottom: 1.2rem !important;
+        padding-top: 1rem !important; /* ٹاپ سے کراپ ہونے سے بچاؤ */
+        letter-spacing: -0.02em !important;
       }
       .tagline {
         font-size: 1.05rem !important;
@@ -67,6 +67,7 @@
 <main>
   <section class="hero">
     <div class="hero-content">
+      
       <h1>Let’s build<br>something dangerous</h1>
 
       <p class="tagline">
@@ -85,7 +86,7 @@
            class="btn btn-primary">
           <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" 
                alt="WhatsApp" 
-               style="width:24px; height:24px; margin-right:10px; filter: brightness(0) invert(1);">
+               style="width:26px; height:26px; margin-right:10px; filter: brightness(0) invert(1);">
           WhatsApp Me Now
         </a>
 
