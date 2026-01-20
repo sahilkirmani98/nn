@@ -6,45 +6,51 @@
   <title>Contact | Sahil Kirmani</title>
   <link rel="stylesheet" href="style.css">
   <style>
-    /* Critical fixes for mobile + no cropping */
+    /* Critical mobile fixes — no cropping, good spacing */
     @media (max-width: 768px) {
       body { font-size: 16px !important; }
       .hero {
         min-height: auto !important;
-        padding: 7rem 1.2rem 10rem !important; /*
+        padding: 8rem 1.2rem 12rem !important; /* more top + extra bottom */
         display: flex;
         align-items: flex-start !important;
         justify-content: flex-start !important;
       }
       .hero-content {
         width: 100%;
-        padding: 1.5rem 0 3rem !important;
+        padding: 1rem 0 4rem !important;
       }
       h1 {
-        font-size: 2.6rem !important; /* 
-        line-height: 1.15 !important;
-        margin-bottom: 1.2rem !important;
-        padding-top: 1rem !important; /* 
-        letter-spacing: -0.02em !important;
+        font-size: 2.5rem !important; /* safer size for small screens */
+        line-height: 1.18 !important;
+        margin-bottom: 1.3rem !important;
+        padding-top: 1.5rem !important; /* stronger anti-crop */
+        letter-spacing: -0.015em !important;
+        word-break: break-word; /* prevents long words from overflowing */
       }
       .tagline {
         font-size: 1.05rem !important;
-        line-height: 1.5 !important;
-        margin: 1.2rem 0 2rem !important;
+        line-height: 1.55 !important;
+        margin: 1.3rem 0 2.2rem !important;
+      }
+      ul {
+        font-size: 1.02rem !important;
+        line-height: 1.65 !important;
       }
       .cta {
         flex-direction: column !important;
-        gap: 1rem !important;
-        margin-top: 1.5rem !important;
+        gap: 1.1rem !important;
+        margin-top: 2rem !important;
       }
       .btn {
         width: 100% !important;
         justify-content: center !important;
-        padding: 1.1rem !important;
-        font-size: 1.05rem !important;
+        padding: 1.2rem !important;
+        font-size: 1.08rem !important;
+        min-height: 48px; /* better touch target */
       }
       footer {
-        padding: 3rem 1.2rem 5rem !important;
+        padding: 4rem 1.2rem 6rem !important;
       }
     }
   </style>
@@ -67,14 +73,13 @@
 <main>
   <section class="hero">
     <div class="hero-content">
-      
       <h1>Let’s build<br>something dangerous</h1>
 
       <p class="tagline">
         Open to serious opportunities only:
       </p>
 
-      <ul style="list-style: none; padding-left: 0; margin: 1.2rem 0 2rem; color: var(--text-2); font-size: 1.05rem; line-height: 1.6;">
+      <ul style="list-style: none; padding-left: 0; margin: 1.2rem 0 2.2rem; color: var(--text-2); font-size: 1.05rem; line-height: 1.6;">
         <li>• Web development roles / freelance</li>
         <li>• SEO + conversion focused projects</li>
         <li>• E-commerce optimization partnerships</li>
@@ -82,15 +87,15 @@
       </ul>
 
       <div class="cta">
-        <a href="https://wa.me/+919149515497?text=Hi%20Sahil,%20saw%20your%20portfolio..." 
+        <a href="https://wa.me/+919149515497?text=Hi%20Sahil,%20saw%20your%20portfolio..."
            class="btn btn-primary">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" 
-               alt="WhatsApp" 
+          <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg"
+               alt="WhatsApp"
                style="width:26px; height:26px; margin-right:10px; filter: brightness(0) invert(1);">
           WhatsApp Me Now
         </a>
 
-        <a href="mailto:sahilkirmani@gmail.com?subject=Portfolio%20Inquiry%20-%20Sahil%20Kirmani&body=Hi%20Sahil,%0A%0AI%20saw%20your%20portfolio%20and%20want%20to%20discuss..." 
+        <a href="mailto:sahilkirmani@gmail.com?subject=Portfolio%20Inquiry%20-%20Sahil%20Kirmani&body=Hi%20Sahil,%0A%0AI%20saw%20your%20portfolio%20and%20want%20to%20discuss..."
            class="btn btn-primary">
           ✉️ Mail →
         </a>
@@ -105,4 +110,3 @@
 
 </body>
 </html>
-
