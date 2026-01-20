@@ -6,26 +6,45 @@
   <title>Contact | Sahil Kirmani</title>
   <link rel="stylesheet" href="style.css">
   <style>
-    /* Mobile fix media query (add to style.css if possible) */
+    /* Critical mobile fixes */
     @media (max-width: 768px) {
+      body {
+        font-size: 16px !important; /* base size for readability */
+      }
       .hero {
-        min-height: auto !important; /* Auto height to fit content */
-        padding: 4rem 1rem 8rem !important; /* More bottom padding to show buttons + push footer */
+        min-height: auto !important;
+        padding: 5rem 1.2rem 8rem !important; /* top + large bottom to reveal buttons + footer space */
+        display: flex;
+        align-items: flex-start !important;
+        justify-content: flex-start !important;
       }
       .hero-content {
-        padding: 2rem 0 !important;
+        width: 100%;
+        padding: 1rem 0;
+      }
+      h1 {
+        font-size: 2.8rem !important;
+        line-height: 1.1 !important;
+        margin-bottom: 1.2rem !important;
       }
       .tagline {
-        margin: 1.5rem auto !important; /* Less margin to bring buttons up */
+        font-size: 1.05rem !important;
+        line-height: 1.5 !important;
+        margin: 1.2rem 0 2rem !important;
       }
       .cta {
-        margin-top: 1rem !important; /* Buttons closer to text */
-        flex-direction: column; /* Stack buttons vertically on small screens */
+        flex-direction: column !important;
         gap: 1rem !important;
+        margin-top: 1.5rem !important;
+      }
+      .btn {
+        width: 100% !important;
+        justify-content: center !important;
+        padding: 1.1rem !important;
+        font-size: 1.05rem !important;
       }
       footer {
-        padding-top: 2rem !important;
-        padding-bottom: 4rem !important; /* More space at bottom */
+        padding: 3rem 1.2rem 5rem !important;
       }
     }
   </style>
@@ -46,22 +65,34 @@
 </header>
 
 <main>
-  <section class="hero" style="min-height:80vh; padding: 4rem 1rem 10rem; box-sizing: border-box;">
+  <section class="hero">
     <div class="hero-content">
       <h1>Let’s build<br>something dangerous</h1>
-      <p class="tagline" style="max-width:720px; margin:2.2rem auto;">
-        Open to serious opportunities only:<br>
-        • Web development roles / freelance<br>
-        • SEO + conversion focused projects<br>
-        • E-commerce optimization partnerships<br>
-        • High-impact digital strategy collaborations
+
+      <p class="tagline">
+        Open to serious opportunities only:
       </p>
-      <div class="cta" style="margin-top:2rem;">
-        <a href="https://wa.me/+919149515497" class="btn btn-primary">WhatsApp Me Now</a>
-       
-<a href="mailto:sahilkirmani@gmail.com?subject=Portfolio%20Inquiry%20-%20Sahil%20Kirmani&body=Hi%20Sahil,%0A%0AI%20saw%20your%20portfolio%20and%20want%20to%20discuss..." class="btn btn-primary">Mail →</a>
 
+      <ul style="list-style: none; padding-left: 0; margin: 1.2rem 0 2rem; color: var(--text-2); font-size: 1.05rem; line-height: 1.6;">
+        <li>• Web development roles / freelance</li>
+        <li>• SEO + conversion focused projects</li>
+        <li>• E-commerce optimization partnerships</li>
+        <li>• High-impact digital strategy collaborations</li>
+      </ul>
 
+      <div class="cta">
+        <a href="https://wa.me/+919149515497?text=Hi%20Sahil,%20saw%20your%20portfolio..." 
+           class="btn btn-primary">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" 
+               alt="WhatsApp" 
+               style="width:24px; height:24px; margin-right:10px; filter: brightness(0) invert(1);">
+          WhatsApp Me Now
+        </a>
+
+        <a href="mailto:sahilkirmani@gmail.com?subject=Portfolio%20Inquiry%20-%20Sahil%20Kirmani&body=Hi%20Sahil,%0A%0AI%20saw%20your%20portfolio%20and%20want%20to%20discuss..." 
+           class="btn btn-primary">
+          ✉️ Mail →
+        </a>
       </div>
     </div>
   </section>
