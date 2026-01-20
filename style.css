@@ -236,17 +236,16 @@ h2 {
   margin-bottom: 1rem;
 }
 
+
 footer {
   text-align: center;
-  padding: 6rem 10% 4rem;
+  padding: 16rem 10% 4rem;
   color: var(--text-2);
   font-size: 0.95rem;
   position: relative;
-  width:100%;
-  
-  border-top: 1px solid var(--border);
+  width: 100%;
+ 
 }
-
 /* Responsive */
 @media (max-width: 768px) {
   .nav-links { gap: 1.5rem; font-size: 0.95rem; }
@@ -390,5 +389,6 @@ body::after {
     padding-top: 12rem !important;
   }
 }
+
 
 
