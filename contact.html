@@ -5,6 +5,30 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Contact | Sahil Kirmani</title>
   <link rel="stylesheet" href="style.css">
+  <style>
+    /* Mobile fix media query (add to style.css if possible) */
+    @media (max-width: 768px) {
+      .hero {
+        min-height: auto !important; /* Auto height to fit content */
+        padding: 4rem 1rem 8rem !important; /* More bottom padding to show buttons + push footer */
+      }
+      .hero-content {
+        padding: 2rem 0 !important;
+      }
+      .tagline {
+        margin: 1.5rem auto !important; /* Less margin to bring buttons up */
+      }
+      .cta {
+        margin-top: 1rem !important; /* Buttons closer to text */
+        flex-direction: column; /* Stack buttons vertically on small screens */
+        gap: 1rem !important;
+      }
+      footer {
+        padding-top: 2rem !important;
+        padding-bottom: 4rem !important; /* More space at bottom */
+      }
+    }
+  </style>
 </head>
 <body>
 
@@ -22,39 +46,25 @@
 </header>
 
 <main>
- <section class="hero" style="height:85vh; padding: 4rem 1rem; box-sizing: border-box;">
-  <div class="hero-content" style="text-align:center; max-width: 800px; margin: 0 auto;">
-    <h1>Let’s build<br>something dangerous</h1>
-    <p class="tagline" style="max-width:720px; margin:2.2rem auto 2.5rem;">
-      Open to serious opportunities only:<br>
-      • Web development roles / freelance<br>
-      • SEO + conversion focused projects<br>
-      • E-commerce optimization partnerships<br>
-      • High-impact digital strategy collaborations
-    </p>
+  <section class="hero" style="min-height:80vh; padding: 4rem 1rem 10rem; box-sizing: border-box;">
+    <div class="hero-content">
+      <h1>Let’s build<br>something dangerous</h1>
+      <p class="tagline" style="max-width:720px; margin:2.2rem auto;">
+        Open to serious opportunities only:<br>
+        • Web development roles / freelance<br>
+        • SEO + conversion focused projects<br>
+        • E-commerce optimization partnerships<br>
+        • High-impact digital strategy collaborations
+      </p>
+      <div class="cta" style="margin-top:2rem;">
+        <a href="https://wa.me/+919149515497" class="btn btn-primary">WhatsApp Me Now</a>
+       
+<a href="mailto:sahilkirmani@gmail.com?subject=Portfolio%20Inquiry%20-%20Sahil%20Kirmani&body=Hi%20Sahil,%0A%0AI%20saw%20your%20portfolio%20and%20want%20to%20discuss..." class="btn btn-primary">Mail →</a>
 
-    <div class="cta" style="margin-top:2rem; display: flex; flex-wrap: wrap; gap: 1.2rem; justify-content: center;">
-      <!-- WhatsApp Button with Icon -->
-      <a href="https://wa.me/+919149515497?text=Hi%20Sahil%2C%20saw%20your%20portfolio%20and%20would%20like%20to%20discuss..." 
-         class="btn btn-primary" 
-         target="_blank" 
-         rel="noopener noreferrer"
-         style="display: inline-flex; align-items: center; gap: 0.8rem; padding: 1rem 2rem; font-size: 1.1rem;">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" 
-             alt="WhatsApp" 
-             style="width: 28px; height: 28px; filter: brightness(0) invert(1);" /> <!-- white icon on colored bg -->
-        WhatsApp Me
-      </a>
 
-      <!-- Email Button (already working, just styled consistently) -->
-      <a href="mailto:sahilkirmani@gmail.com?subject=Portfolio%20Inquiry%20-%20Sahil%20Kirmani&body=Hi%20Sahil%2C%0A%0AI%20saw%20your%20portfolio%20and%20want%20to%20discuss..." 
-         class="btn btn-primary" 
-         style="display: inline-flex; align-items: center; gap: 0.8rem; padding: 1rem 2rem; font-size: 1.1rem;">
-        <span style="font-size: 1.3rem;">✉️</span> Mail →
-      </a>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
 </main>
 
 <footer>
