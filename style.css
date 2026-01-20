@@ -1,513 +1,391 @@
-/* ===============================
-    GLOBAL RESET & BASE
-================================ */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+@import url('https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+
+:root {
+  --bg: #0d0d12;
+  --surface: #121218;
+  --surface-2: #1a1a22;
+  --text: #f8f9fa;
+  --text-2: #b0b3c1;
+  --accent: #a855f7;
+  --accent-2: #c084fc;
+  --accent-dark: #7c3aed;
+  --border: rgba(160, 120, 255, 0.15);
+  --gradient: linear-gradient(135deg, #a855f7, #7c3aed, #5b21b6);
+  --glow: 0 0 30px rgba(168, 85, 247, 0.4);
 }
 
-html {
-    scroll-behavior: smooth;
-}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
 
 body {
-    background: #000;
-    color: #a7a7a7;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-    min-height: 100vh;
-    overflow-x: hidden;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    line-height: 1.6;
-    letter-spacing: 0.3px;
-    animation: pageFade 1.2s ease forwards;
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Instrument Sans', sans-serif;
+  line-height: 1.7;
+  overflow-x: hidden;
 }
 
-/* ===============================
-    AMBIENT BACKGROUND SYSTEM
-================================ */
-body::before {
-    content: "";
-    position: fixed;
-    inset: 0;
-    background:
-        radial-gradient(circle at 20% 20%, rgba(255,255,255,0.06), transparent 40%),
-        radial-gradient(circle at 80% 70%, rgba(255,255,255,0.05), transparent 45%);
-    animation: ambientDrift 25s linear infinite;
-    z-index: -2;
-}
-
-body::after {
-    content: "";
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    width: 90vw;
-    height: 90vw;
-    max-width: 700px;
-    max-height: 700px;
-    transform: translate(-50%, -50%);
-    background: radial-gradient(circle, rgba(120,120,120,0.18), transparent 70%);
-    filter: blur(120px);
-    animation: glowPulse 10s ease-in-out infinite;
-    z-index: -3;
-}
-
-/* ===============================
-    HEADER / NAV (Mobile First)
-================================ */
+/* Header - God Level */
 header {
-    width: 90%;
-    max-width: 1200px;
-    padding: 1.5rem 0;
-    display: flex;
-    flex-direction: column;
-    gap: 1.2rem;
-    align-items: center;
-    text-align: center;
-}
-
-.h1 h1 {
-    font-size: 2.2rem;
-    font-weight: 300;
-    color: #fff;
-    letter-spacing: 1px;
-    line-height: 1.05;
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 9999;
+  padding: 1.4rem 5%;
+  background: rgba(13, 13, 18, 0.85);
+  backdrop-filter: blur(20px) saturate(180%);
+  border-bottom: 1px solid var(--border);
 }
 
 nav {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 0.8rem;
+  max-width: 1400px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-/* ===============================
-    MAIN CONTENT
-================================ */
-main {
-    width: 100%;
-    max-width: 900px;
-    padding: 3rem 1.5rem;
-    text-align: center;
+.logo {
+  font-size: 1.8rem;
+  font-weight: 700;
+  background: linear-gradient(90deg, #ffffff, var(--accent-2), #a855f7);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  letter-spacing: -0.05em;
+}
+
+.nav-links a {
+  color: var(--text-2);
+  text-decoration: none;
+  font-weight: 500;
+  margin-left: 2.8rem;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.nav-links a::before {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -8px;
+  left: 50%;
+  background: var(--gradient);
+  transition: all 0.4s ease;
+  transform: translateX(-50%);
+}
+
+.nav-links a:hover, .nav-links a.active {
+  color: white;
+}
+
+.nav-links a:hover::before, .nav-links a.active::before {
+  width: 100%;
+}
+
+/* Hero - جو لوگ دیکھیں گے وہ ہکا بکا رہ جائیں گے */
+.hero {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 50% 30%, rgba(168, 85, 247, 0.15), transparent 60%);
+  z-index: 1;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 960px;
+  padding: 0 2rem;
+}
+
+.hero h1 {
+  font-size: clamp(4.5rem, 12vw, 8.5rem);
+  font-weight: 700;
+  line-height: 0.88;
+  letter-spacing: -0.06em;
+  margin-bottom: 1.2rem;
+  background: linear-gradient(90deg, #ffffff, var(--accent-2), #ffffff);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: glowShift 8s ease-in-out infinite;
+}
+
+@keyframes glowShift {
+  0%, 100% { filter: hue-rotate(0deg); }
+  50% { filter: hue-rotate(30deg); }
+}
+
+.hero .tagline {
+  font-size: 1.55rem;
+  color: var(--text-2);
+  margin: 1.8rem 0 3rem;
+  font-weight: 400;
+  letter-spacing: -0.02em;
+}
+
+.cta {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.btn {
+  padding: 1.1rem 2.8rem;
+  border-radius: 9999px;
+  font-weight: 600;
+  font-size: 1.05rem;
+  text-decoration: none;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-primary {
+  background: var(--gradient);
+  color: white;
+  box-shadow: var(--glow);
+}
+
+.btn-primary:hover {
+  transform: translateY(-6px) scale(1.05);
+  box-shadow: 0 0 50px rgba(168, 85, 247, 0.6);
+}
+
+.btn-outline {
+  border: 1.5px solid rgba(168, 85, 247, 0.4);
+  color: var(--text);
+  backdrop-filter: blur(10px);
+}
+
+.btn-outline:hover {
+  background: rgba(168, 85, 247, 0.15);
+  border-color: var(--accent-2);
+  color: white;
+}
+
+/* Sections */
+section {
+  padding: 10rem 5% 8rem;
+  max-width: 1400px;
+  margin: 0 auto;
 }
 
 h2 {
-    color: #fff;
-    font-weight: 400;
-    font-size: 1.8rem;
-    margin-bottom: 1.5rem;
+  font-size: 3.8rem;
+  text-align: center;
+  margin-bottom: 4rem;
+  background: linear-gradient(90deg, white, var(--accent-2));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 700;
 }
 
-.text-glow {
-    text-shadow: 0 0 20px rgba(255,255,255,0.15);
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+  gap: 2rem;
 }
 
-.tagline { padding-bottom: 10px;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    max-width: 720px;
-    margin: auto;
-    font-size: 1rem;
-    line-height: 1.7;
-    color: #888;
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 1.5rem;
+  padding: 2.5rem 2rem;
+  transition: all 0.5s ease;
+  position: relative;
+  overflow: hidden;
 }
 
-/* ===============================
-    TAG BOX & CONTACT CARD
-================================ */
-.tag-box {
-    padding: 0.6rem 1.8rem;
-    border-radius: 50px;
-    text-decoration: none;
-    color: #fff;
-    background: linear-gradient(120deg, #5300a0, #757575, #6600c5);
-    background-size: 300% 300%;
-    animation: gradientShift 4s linear infinite;
-    transition: transform .3s ease, box-shadow .3s ease;
-    display: inline-flex;
-    align-items: center;
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: var(--gradient);
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  z-index: -1;
 }
 
-.contact-card {
-    position: relative;
-    padding: 0.7rem 2.2rem;
-    border-radius: 999px;
-    text-decoration: none;
-    color: #fff;
-    background: #000;
-    overflow: hidden;
-    display: inline-flex;
-    align-items: center;
-    isolation: isolate;
-    transition: transform .35s cubic-bezier(.2,.8,.2,1);
-    animation: breathe 4s ease-in-out infinite;
+.card:hover {
+  transform: translateY(-20px);
+  border-color: var(--accent-2);
+  box-shadow: 0 40px 80px rgba(168, 85, 247, 0.25);
 }
 
-.contact-card::before {
-    content: "";
-    position: absolute;
-    inset: -250%;
-    background: conic-gradient(transparent, #9fa6ad, #ffffff, #9fa6ad, transparent 55%);
-    animation: energySpin 4s linear infinite;
-    z-index: -2;
+.card:hover::before {
+  opacity: 0.08;
 }
 
-.contact-card::after {
-    content: "";
-    position: absolute;
-    inset: 2px;
-    background: #000;
-    border-radius: inherit;
-    z-index: -1;
+.card h3 {
+  color: var(--accent-2);
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
 }
 
-.contact-card.gold::before {
-    background: conic-gradient(transparent, #b8860b, #ffd700, #fff8dc, #b8860b, transparent 55%);
-}
-
-/* ===============================
-    NEURAL CARD
-================================ */
-.neural-card {
-    position: relative;
-    border-radius: 18px;
-    background: #0b0b0b;
-    overflow: hidden;
-    transform: translateZ(0);
-}
-
-.neural-card::before {
-    content: "";
-    position: absolute;
-    inset: -40%;
-    background: radial-gradient(circle at 30% 30%, rgba(63,224,197,0.25), transparent 35%),
-                radial-gradient(circle at 70% 70%, rgba(120,180,255,0.2), transparent 40%);
-    animation: neuralDrift 18s linear infinite;
-    filter: blur(30px);
-    z-index: -1;
-}
-
-.neural-card::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    border-radius: inherit;
-    background: linear-gradient(120deg, transparent 45%, rgba(63,224,197,0.6), transparent 55%);
-    opacity: 0;
-    animation: edgeScan 4.5s ease-in-out infinite;
-    z-index: -1;
-}
-
-/* ===============================
-    ION CARD
-================================ */
-.ion-card {
-    position: relative;
-    background: #0e0e0e;
-    border-radius: 16px;
-    transition: transform .35s ease, box-shadow .35s ease;
-    animation: ionBreath 6s ease-in-out infinite;
-}
-
-/* ===============================
-    SIGNAL CARD
-================================ */
-.signal-card {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 12px;
-    padding: 28px 22px;
-    border-radius: 14px;
-    background: rgba(18, 18, 18, 0.75);
-    border: 1px solid rgba(255, 255, 255, 0.12);
-    text-align: center;
-    overflow: hidden;
-}
-
-.signal-card::before {
-    content: "";
-    position: absolute;
-    left: 0;
-    top: -40%;
-    width: 100%;
-    height: 40%;
-    background: linear-gradient(to bottom, transparent, rgba(255, 170, 60, 0.35), transparent);
-    animation: signalScan 4s ease-in-out infinite;
-    opacity: 0.6;
-}
-
-/* ===============================
-    STARFIELD CARD
-================================ */
-.starfield-card {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 14px;
-    padding: 30px 24px;
-    border-radius: 16px;
-    background: rgba(14, 14, 18, 0.85);
-    border: 1px solid rgba(255, 255, 255, 0.12);
-    text-align: center;
-    overflow: hidden;
-}
-
-.starfield-card::before {
-    content: "";
-    position: absolute;
-    inset: -50%;
-    background-image:
-        radial-gradient(1px 1px at 20% 30%, rgba(255,255,255,.8), transparent),
-        radial-gradient(1px 1px at 80% 40%, rgba(255,255,255,.6), transparent);
-    background-repeat: repeat;
-    animation: starsDrift 22s linear infinite;
-    opacity: 0.6;
-}
-
-/* ===============================
-    SKILLS & BLOCKS
-================================ */
-.skill-block h3 {
-    font-size: 22px;
-    font-weight: 600;
-    margin-bottom: 22px;
-    color: #ff8c00;
-}
-.signature {
-  font-family: 'Pacifico', cursive;
-  font-size: 32px;
-  font-weight: 400;
-  color: #eeebeb;
-  letter-spacing: 1px;
-}
-
-
-.skill-category {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    gap: 22px;
-}
-.skills-list{
-
-    padding: 2px;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-}
-.skill-item {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 12px;
-}
-
-/* ===============================
-    FOOTER
-================================ */
 footer {
-    margin-top: auto;
-    padding: 2rem;
-    font-size: 0.85rem;
-    color: #666;
+  text-align: center;
+  padding: 6rem 10% 4rem;
+  color: var(--text-2);
+  font-size: 0.95rem;
+  
+  border-top: 1px solid var(--border);
 }
 
-/* ===============================
-    DESKTOP ENHANCEMENTS (768px+)
-================================ */
-@media (min-width: 768px) {
-    header {
-        flex-direction: row;
-        justify-content: space-between;
-        padding: 2.5rem 0;
-    }
-
-    .h1 h1 { font-size: 2.8rem; font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif; }
-
-    main { padding: 5rem 2rem; font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;}
-
-    h2 { font-size: 2.2rem; font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;}
-
-    .tag-box:hover { transform: translateY(-4px); box-shadow: 0 10px 30px rgba(255,255,255,0.25); }
-    .contact-card:hover { transform: scale(1.08); }
-    .neural-card:hover { transform: translateY(-6px); box-shadow: 0 25px 60px rgba(63,224,197,0.25); }
-    .ion-card:hover { transform: translateY(-8px) scale(1.015); }
-    .signal-card:hover { transform: translateY(-6px); border-color: rgba(255, 170, 60, 0.45); }
-    .starfield-card:hover { transform: translateY(-6px); }
-}
-
-/* ===============================
-    ANIMATIONS KEYFRAMES
-================================ */
-@keyframes pageFade { from { opacity: 0; } to { opacity: 1; } }
-@keyframes gradientShift { 0% { background-position: 0% 50%; } 100% { background-position: 300% 50%; } }
-@keyframes energySpin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
-@keyframes breathe { 0%,100% { box-shadow: 0 0 10px rgba(255,255,255,0.12); } 50% { box-shadow: 0 0 28px rgba(255,255,255,0.35); } }
-@keyframes glowPulse { 0%,100% { transform: translate(-50%,-50%) scale(1); } 50% { transform: translate(-50%,-50%) scale(1.08); } }
-@keyframes ambientDrift { from { background-position: 0 0; } to { background-position: 1000px 1000px; } }
-@keyframes neuralDrift { 0% { transform: translate(-8%,-8%) scale(1); } 50% { transform: translate(8%,8%) scale(1.15); } 100% { transform: translate(-8%,-8%) scale(1); } }
-@keyframes edgeScan { 0%,100% { opacity: 0; } 50% { opacity: .55; } }
-@keyframes ionBreath { 0%, 100% { box-shadow: 0 0 0 rgba(0,0,0,0); } 50% { box-shadow: 0 20px 45px rgba(63,224,197,.25); } }
-@keyframes signalScan { 0% { top: -40%; } 50%, 100% { top: 100%; } }
-@keyframes starsDrift { from { transform: translateY(0); } to { transform: translateY(-200px); } }
-
-
-
-
-
-
-/* ===============================
-    FIXED STAR EFFECT
-================================ */
-.star-effect {
-    position: relative;
-    background-color: #000; /* Ensures stars are visible */
-    background-image: 
-        radial-gradient(1px 1px at 10% 10%, #fff, transparent),
-        radial-gradient(1px 1px at 20% 50%, #fff, transparent),
-        radial-gradient(1.5px 1.5px at 30% 90%, #fff, transparent),
-        radial-gradient(1px 1px at 50% 20%, #fff, transparent),
-        radial-gradient(1.5px 1.5px at 60% 70%, #fff, transparent),
-        radial-gradient(1px 1px at 80% 30%, #fff, transparent),
-        radial-gradient(1px 1px at 90% 80%, #fff, transparent);
-    background-size: 250px 250px; /* How dense the stars are */
-    animation: starPulse 4s ease-in-out infinite;
-    
-    /* Center the content inside */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 2rem;
-    border-radius: 20px;
-    overflow: hidden;
-}
-
-@keyframes starPulse {
-    0%, 100% { opacity: 0.8; }
-    50% { opacity: 0.4; }
-}
-           
-
-
-
-
-
-
-
-
-
-/* ===============================
-   /* ===============================
-    MINIMAL APPLE-STYLE LOGO
-================================ */
-.logo-apple {
-    /* Font Styling: Clean & Small */
-    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", "Helvetica Neue", Arial, sans-serif;
-    font-size: 1.1rem; /* Small, like a navigation brand */
-    font-weight: 500;
-    letter-spacing: -0.02em; /* Tight kerning like Apple */
-    text-decoration: none;
-    display: inline-block;
-    color: #f5f5f7; /* Apple's off-white */
-    
-    /* The Shimmer Mask */
-    background: linear-gradient(
-        75deg, 
-        rgba(255, 255, 255, 0.4) 30%, 
-        rgba(255, 255, 255, 1) 50%, 
-        rgba(255, 255, 255, 0.4) 70%
-    );
-    background-size: 200% 100%;
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-    
-    /* Interaction & Animation */
-    animation: appleShimmer 8s infinite linear;
-    transition: opacity 0.3s ease;
-}
-
-.logo-apple:hover {
-    opacity: 0.7; /* Subtile dim on hover, Apple style */
-}
-
-@keyframes appleShimmer {
-    0% { background-position: 200% 0; }
-    100% { background-position: -200% 0; }
-}
-
-/* Container to ensure it stays in place */
-.h1 {
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-}
-.h3{
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-
-}
-
-.p {
-    font-size: 16px;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+/* Responsive */
+@media (max-width: 768px) {
+  .nav-links { gap: 1.5rem; font-size: 0.95rem; }
+  .cta { flex-direction: column; align-items: center; }
+  .btn { width: 80%; }
 }
 
 
+/* ... keep all previous variables and resets ... */
 
-
-.fade-down {
-  animation: fadeDown 1s ease;
+:root {
+  --bg: #0f0f1a;
+  --surface: #161622;
+  --surface-2: #1e1e2e;
+  --text: #f0f2f5;
+  --text-2: #b0b6c2;
+  --accent: #9f7aea;
+  --accent-2: #d6bcfa;
+  --accent-dark: #7c3aed;
+  --border: rgba(159,122,234,0.18);
+  --glow: 0 0 35px rgba(159,122,234,0.35);
 }
 
-@keyframes fadeDown {
-  from {
-    opacity: 0;
-    transform: translateY(-30px);
+/* Animated background - light & elegant */
+body {
+  background: var(--bg);
+  position: relative;
+  overflow-x: hidden;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background: 
+    radial-gradient(circle at 20% 30%, rgba(159,122,234,0.12) 0%, transparent 40%),
+    radial-gradient(circle at 80% 70%, rgba(214,188,250,0.10) 0%, transparent 45%),
+    radial-gradient(circle at 50% 50%, rgba(124,58,237,0.06) 0%, transparent 60%);
+  background-size: 150% 150%;
+  animation: bgDrift 40s ease-in-out infinite alternate;
+  z-index: -2;
+  pointer-events: none;
+}
+
+@keyframes bgDrift {
+  0%   { background-position: 0% 0%; transform: scale(1.05); }
+  100% { background-position: 100% 100%; transform: scale(1.08); }
+}
+
+/* Optional subtle floating glow spots */
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background: 
+    radial-gradient(circle 800px at 15% 25%, rgba(159,122,234,0.08), transparent),
+    radial-gradient(circle 600px at 85% 75%, rgba(214,188,250,0.07), transparent);
+  opacity: 0.7;
+  animation: slowPulse 18s ease-in-out infinite;
+  z-index: -3;
+  pointer-events: none;
+}
+
+@keyframes slowPulse {
+  0%, 100% { opacity: 0.6; transform: scale(1); }
+  50%      { opacity: 0.85; transform: scale(1.03); }
+}
+
+/* Fix h1 cropping - better spacing & clamp */
+.hero h1 {
+  font-size: clamp(4rem, 11vw, 9rem);
+  line-height: 0.90;               /* tighter but safe */
+  letter-spacing: -0.05em;
+  padding: 0.4em 0;                /* breathing room top/bottom */
+  margin: 0;
+  hyphens: auto;
+  overflow-wrap: break-word;
+}
+
+/* Make sure hero has enough top padding when header is fixed */
+.hero {
+  min-height: 100vh;
+  padding-top: 6rem;               /* increased top padding */
+  padding-bottom: 4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Extra safety for very small screens */
+@media (max-height: 600px) {
+  .hero {
+    min-height: 120vh;             /* prevent squish on ultra-short viewports */
+    padding-top: 8rem;
   }
-  to {
-    opacity: 1;
-    transform: translateY(0);
+  
+  .hero h1 {
+    font-size: clamp(3.2rem, 9vw, 6rem);
+    line-height: 0.92;
   }
 }
 
-
-.fade-up {
-    animation: fadeUp 2s ease;
+@media (max-width: 480px) {
+  .hero h1 {
+    font-size: clamp(3.6rem, 10vw, 5.5rem);
+  }
 }
 
-@keyframes fadeUp {
-    from {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+/* Prevent any content from being cut by fixed header */
+.hero {
+  padding-top: 8rem !important;       /* more space below fixed header */
+  min-height: calc(100vh - 1px);      /* avoid scrollbar issues */
+  box-sizing: border-box;
 }
 
-
-.fade-right{
-    animation: fadeRight 2s ease; 
+.hero-content {
+  padding-top: 2rem;                  /* extra internal safety */
 }
 
-@keyframes fadeRight{
-    from{
-        opacity: 0;
-        transform: translateX(-30px);
-    }
-    to {
-        opacity: 1;
-        transform: translateX(0);
-    }
+/* Mobile fixes – make sure text never gets cropped */
+@media (max-width: 768px) {
+  .hero {
+    padding-top: 10rem !important;
+    align-items: flex-start;
+  }
+
+  .hero-content {
+    padding-top: 1rem;
+    padding-bottom: 4rem;
+  }
+
+  /* Slightly reduce name size if screen is very narrow */
+  div[style*="SAHIL KIRMANI"] {
+    font-size: clamp(2.8rem, 8.5vw, 4.5rem) !important;
+  }
 }
 
-
+@media (max-height: 650px) {
+  .hero {
+    min-height: 110vh;                /* extra tall on short viewports */
+    padding-top: 12rem !important;
+  }
+}
 
