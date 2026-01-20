@@ -6,51 +6,55 @@
   <title>Contact | Sahil Kirmani</title>
   <link rel="stylesheet" href="style.css">
   <style>
-    /* Critical mobile fixes — no cropping, good spacing */
+    /* Global layout fix – footer always at bottom, no overlap */
+    html, body {
+      height: 100%;
+      margin: 0;
+    }
+    body {
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      font-size: 16px;
+    }
+    main {
+      flex: 1 0 auto;           /* grows to push footer down */
+    }
+    footer {
+      flex-shrink: 0;
+      padding: 3rem 1.2rem 5rem;
+      text-align: center;
+    }
+
+    /* Mobile-specific adjustments */
     @media (max-width: 768px) {
-      body { font-size: 16px !important; }
       .hero {
-        min-height: auto !important;
-        padding: 8rem 1.2rem 12rem !important; /* more top + extra bottom */
-        display: flex;
-        align-items: flex-start !important;
-        justify-content: flex-start !important;
+        min-height: auto;
+        padding: 8rem 1.2rem 10rem !important; /* top for header + bottom for buttons + footer space */
       }
       .hero-content {
-        width: 100%;
-        padding: 1rem 0 4rem !important;
+        padding: 1rem 0 3rem;
       }
       h1 {
-        font-size: 2.5rem !important; /* safer size for small screens */
+        font-size: 2.5rem !important;
         line-height: 1.18 !important;
-        margin-bottom: 1.3rem !important;
-        padding-top: 1.5rem !important; /* stronger anti-crop */
-        letter-spacing: -0.015em !important;
-        word-break: break-word; /* prevents long words from overflowing */
+        margin-bottom: 1.2rem !important;
+        padding-top: 1.5rem !important; /* extra anti-crop */
       }
       .tagline {
         font-size: 1.05rem !important;
-        line-height: 1.55 !important;
-        margin: 1.3rem 0 2.2rem !important;
-      }
-      ul {
-        font-size: 1.02rem !important;
-        line-height: 1.65 !important;
+        margin: 1.2rem 0 2rem !important;
       }
       .cta {
         flex-direction: column !important;
-        gap: 1.1rem !important;
-        margin-top: 2rem !important;
+        gap: 1rem !important;
+        margin-top: 1.5rem !important;
       }
       .btn {
         width: 100% !important;
-        justify-content: center !important;
-        padding: 1.2rem !important;
-        font-size: 1.08rem !important;
+        padding: 1.1rem !important;
+        font-size: 1.05rem !important;
         min-height: 48px; /* better touch target */
-      }
-      footer {
-        padding: 4rem 1.2rem 6rem !important;
       }
     }
   </style>
@@ -79,7 +83,7 @@
         Open to serious opportunities only:
       </p>
 
-      <ul style="list-style: none; padding-left: 0; margin: 1.2rem 0 2.2rem; color: var(--text-2); font-size: 1.05rem; line-height: 1.6;">
+      <ul style="list-style: none; padding-left: 0; margin: 1.2rem 0 2rem; color: var(--text-2); font-size: 1.05rem; line-height: 1.6;">
         <li>• Web development roles / freelance</li>
         <li>• SEO + conversion focused projects</li>
         <li>• E-commerce optimization partnerships</li>
